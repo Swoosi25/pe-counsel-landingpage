@@ -211,19 +211,26 @@ section.security > .wrap > p { max-width: 62ch; font-size: 16px; color: var(--ch
 
 /* ---- Footer ---- */
 footer.site {
-  padding: 40px 0 56px;
+  padding: 48px 0 56px;
   border-top: 1px solid var(--hairline);
   background: rgba(255,255,255,.5);
   position: relative; z-index: 1;
 }
-.foot-inner { display: flex; flex-direction: column; gap: 16px; }
-.foot-brand-row { display: flex; align-items: center; gap: 10px; }
-.foot-brand { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--slate); letter-spacing: .02em; }
-.foot-links { display: flex; gap: 20px; font-family: 'Outfit', sans-serif; font-size: 13px; }
-.foot-links a { color: var(--slate); text-decoration: none; transition: color .2s; }
-.foot-links a:hover { color: var(--ink); }
-.privacy { font-size: 12px; color: #7a8494; line-height: 1.6; max-width: 60ch; }
+.foot-inner { display: flex; flex-direction: column; gap: 28px; }
+.foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 24px; }
+.foot-col { display: flex; flex-direction: column; gap: 9px; align-items: flex-start; }
+.foot-brand-col .mark { margin-bottom: 12px; }
+.foot-brand { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 16px; color: var(--ink); letter-spacing: .01em; }
+.foot-tag { font-size: 13px; color: var(--slate); margin: 4px 0 0; max-width: 30ch; line-height: 1.6; }
+.foot-h { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; color: var(--ink); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 6px; }
+.foot-col a { font-family: 'Outfit', sans-serif; font-size: 14px; color: var(--slate); text-decoration: none; transition: color .2s; padding: 2px 0; }
+.foot-col a:hover { color: var(--verdigris); }
+.privacy { font-size: 12px; color: #7a8494; line-height: 1.6; max-width: 70ch; }
 .privacy a { color: var(--slate); }
+@media (max-width: 720px) {
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .foot-brand-col { grid-column: 1 / -1; }
+}
 
 /* ---- Reveal-on-scroll ---- */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
