@@ -44,7 +44,12 @@
     <form class="sub-form" id="sub-form" novalidate>
       <input type="email" id="sub-email" class="sub-input" placeholder="you@fund.com" autocomplete="email" required aria-label="Email address">
       <button type="submit" class="sub-btn" id="sub-btn">Stay updated</button>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
     </form>
+    <label class="consent">
+      <input type="checkbox" id="sub-consent">
+      <span>Ja, ich möchte per E-Mail über den Launch informiert werden. Details unter <a href="#privacy">Datenschutz</a>.</span>
+    </label>
     <p class="sub-note" id="sub-note">Get one email when we launch. No spam, ever.</p>
     <p class="sub-status" id="sub-status" role="status" aria-live="polite"></p>
 
@@ -104,14 +109,19 @@
       <form class="sub-form sub-form-lg" id="sub-form2" novalidate>
         <input type="email" id="sub-email2" class="sub-input" placeholder="you@fund.com" autocomplete="email" required aria-label="Email address">
         <button type="submit" class="sub-btn" id="sub-btn2">Stay updated</button>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
       </form>
+      <label class="consent">
+        <input type="checkbox" id="sub-consent2">
+        <span>Ja, ich möchte per E-Mail über den Launch informiert werden. Details unter <a href="#privacy">Datenschutz</a>.</span>
+      </label>
       <p class="sub-note" id="sub-note2">One launch email. Nothing else.</p>
       <p class="sub-status" id="sub-status2" role="status" aria-live="polite"></p>
     </div>
   </section>
 </main>
 
-<footer class="footer">
+<footer class="footer" id="privacy">
   <div class="footer-inner">
     <a class="brand" href="#top">
       <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,.04)"/><rect x="7" y="7" width="7" height="18" rx="2" fill="#00C896"/><rect x="18" y="7" width="7" height="11" rx="2" fill="#4F8EF7"/><rect x="18" y="21" width="7" height="4" rx="2" fill="#4F8EF7" opacity=".55"/></svg>
@@ -119,6 +129,11 @@
     </a>
     <p class="footer-tag">Private Equity Legal AI · Pre-launch</p>
     <p class="footer-note">© 2026 PE Counsel. All rights reserved.</p>
+    <p class="privacy-note">
+      <strong>Datenschutz (kurz):</strong> Wir speichern ausschließlich deine E-Mail-Adresse und verwenden sie nur,
+      um dich einmalig über den Launch zu informieren. Eine Weitergabe an Dritte erfolgt nicht.
+      Du kannst die Einwilligung jederzeit mit einer kurzen E-Mail an <a href="mailto:sales@pecounsel.ai">sales@pecounsel.ai</a> widerrufen.
+    </p>
   </div>
 </footer>
 

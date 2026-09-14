@@ -121,6 +121,16 @@ body {
 .sub-status.ok { color: var(--accent); }
 .sub-status.err { color: #ff5d5d; }
 
+.consent {
+  margin-top: 14px; display: flex; align-items: flex-start; gap: 10px;
+  font-size: 12.5px; color: #5a6478; max-width: 520px; text-align: left;
+  cursor: pointer;
+}
+.consent input { accent-color: var(--accent); width: 15px; height: 15px; margin-top: 2px; cursor: pointer; flex: none; }
+.consent a { color: var(--accent2); text-decoration: none; }
+.consent a:hover { text-decoration: underline; }
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
 .hero-strip {
   margin-top: 64px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center;
   font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #5a6478;
@@ -188,6 +198,9 @@ body {
 }
 .footer-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #5a6478; }
 .footer-note { font-size: 12.5px; color: #4a5468; }
+.privacy-note { font-size: 12.5px; color: #4a5468; max-width: 720px; line-height: 1.65; }
+.privacy-note a { color: var(--accent2); text-decoration: none; }
+.privacy-note a:hover { text-decoration: underline; }
 
 @media (max-width: 600px) {
   .hero { justify-content: flex-start; padding-top: 80px; }
