@@ -1,0 +1,71 @@
+You are helping me debug and fix the email confirmation flow for my Cloudflare Workers waitlist system. Be technical, specific, and give me step-by-step commands/click-paths I can run myself.
+
+## The goal
+The landing page at https://pe-counsel-landingpage.pages.dev has a signup form. When a visitor submits an email, the flow (double opt-in) must work end to end:
+1. Browser POSTs JSON to the Worker, which returns {"ok":true} quickly.
+2. Worker logs the raw signup to a Google Sheet via an Apps Script webhook.
+3. Worker creates a 48-char hex verification token, stores it in the KV namespace VERIFY_TOKENS with a TTL (72h), and emails a confirmation link to the visitor.
+4. Visitor clicks https://pe-counsel-waitlist.wild-paper-7d0a.workers.dev/verify?token=... which shows a name+company form.
+5. Visitor submits name+company to /complete; the Worker validates, writes the verified record to a second Google Sheet via another Apps Script webhook, deletes the token, and shows a confirmation page.
+
+## Current symptom
+The form shows "Sending…" and then "Something went wrong. Please try again." almost immediately or after several seconds. So the Worker is either not reachable, blocked by CORS, or is returning an error status (400/405/502) instead of {"ok":true}.
+
+## My current config
+
+### wrangler.toml
+```toml
+name = "pe-counsel-waitlist"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[observability]
+enabled = true
+
+[vars]
+SMTP_HOST = "smtp.strato.de"
+SMTP_PORT = "465"
+SMTP_USER = "sales@pecounsel.ai"
+SMTP_FROM = "sales@pecounsel.ai"
+ALLOWED_ORIGINS = "https://pe-counsel-landingpage.pages.dev,https://swoosi25.github.io,http://localhost:8000,http://localhost:8080,http://localhost:8888,http://localhost:8889,http://localhost:8890,http://127.0.0.1:8000,http://127.0.0.1:8080,http://127.0.0.1:8888,http://127.0.0.1:8889,http://127.0.0.1:8890"
+BASE_URL = "https://pe-counsel-waitlist.wild-paper-7d0a.workers.dev"
+TOKEN_TTL_HOURS = "72"
+
+[[kv_namespaces]]
+binding = "VERIFY_TOKENS"
+id = "e3459e5e1f3e42dc8ca2ca2e856804d9"
+```
+
+### Secrets already set on the Worker (via `wrangler secret put`)
+- SHEETS_RAW_WEBAPP_URL  (Apps Script webhook URL for the raw signups sheet)
+- SHEETS_RAW_TOKEN
+- SHEETS_VERIFIED_WEBAPP_URL (Apps Script webhook URL for the verified sheet)
+- SHEETS_VERIFIED_TOKEN
+- SMTP_PASS
+
+### Latest deploy
+Version ID fc48fdbe-57e2-497b-87ea-3a7dcee5720f, worker name pe-counsel-waitlist, same KV binding, URL https://pe-counsel-waitlist.wild-paper-7d0a.workers.dev
+
+## The Worker code (src/index.js, abbreviated but faithful)
+- Handles OPTIONS preflight -> 204 with CORS headers (Access-Control-Allow-Origin only when Origin is in ALLOWED_ORIGINS; methods POST, OPTIONS; headers Content-Type).
+- POST / -> parses JSON, validates email regex /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, returns 400 on bad email, {"ok":true,"dropped":"honeypot"} if the honeypot field `website` is filled.
+- Appends raw signup to SHEETS_RAW webhook; if that fails returns {"ok":false,"error":"storage failed"} with 502. If SHEETS_RAW_WEBAPP_URL or SHEETS_RAW_TOKEN is missing it SKIPS the write (returns ok) and proceeds.
+- Generates token, writes KV keys "v:<token>" (JSON meta, 72h TTL) and "x:<token>" ("exp", TTL+6h).
+- Sends the verification email via smtp.js (raw SMTP over TLS 465/STARTTLS to smtp.strato.de using AUTH LOGIN with SMTP_USER + SMTP_PASS). If mail fails -> {"ok":false,"error":"mail failed"} with 502.
+- Returns {"ok":true} only if sheets append AND email both succeeded.
+- GET /verify?token=... shows name+company form; POST /complete saves the verified record to SHEETS_VERIFIED webhook and deletes the tokens.
+
+### smtp.js (the mail sender)
+Uses `cloudflare:sockets` connect() with secureTransport "starttls" to host:port (smtp.strato.de:465), reads replies expecting 220/250/334/235/354 in order: EHLO -> AUTH LOGIN -> base64(user) -> base64(password) -> MAIL FROM -> RCPT TO -> DATA -> message -> QUIT. Any wrong reply code throws and the Worker returns 502 "mail failed".
+
+## What I need you to do
+1. Tell me exactly how to verify, from the Cloudflare dashboard and/or `wrangler tail`, why the POST returns an error. Walk through: (a) is the Worker actually receiving the request, (b) which line/response code is being returned, (c) real-time logs via `wrangler tail pe-counsel-waitlist --format pretty`.
+2. Diagnose the most likely failure points in order of probability:
+   - CORS: is the Origin https://pe-counsel-landingpage.pages.dev being sent and echoed? (Check the preflight and the Access-Control-Allow-Origin header on the actual response.)
+   - Google Sheets Apps Script webhook: how do I verify SHEETS_RAW_WEBAPP_URL + SHEETS_RAW_TOKEN are correct (e.g. curl the webhook with the token and a test record) without polluting my real sheet with junk rows?
+   - SMTP via Strato: anything special about smtp.strato.de (port 587 vs 465, STARTTLS vs implicit TLS, AUTH LOGIN vs PLAIN, IP-based restrictions/whitelist, SMTP username format needing the full domain) that could make AUTH or RCPT fail from Cloudflare Workers? My current code uses port 465 with secureTransport:"starttls".
+3. Give me the exact shell/curl commands to reproduce each stage myself, plus the exact `wrangler` commands to redeploy and to inspect the deployed config (vars/secrets/KV).
+4. Give me a corrected version of any config or code snippet needed (e.g. the right SMTP port/transport for Strato, or a `fetch` snippet for testing the Sheets webhook with a token).
+5. End with a short checklist in order of "do this first" so I can fix it in under 15 minutes.
+
+Assume I can run `wrangler` locally and I have dashboard access. Do not modify anything directly; only give me instructions.
