@@ -3,129 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PE Counsel — Coming Soon · Private Equity Legal AI</title>
-<meta name="description" content="PE Counsel is the AI-native legal operations platform for private equity teams — document review, legal spend control, RFP & law-firm selection, panel management and bill review in one place. Coming soon.">
+<title>PE Counsel — The operating layer for private equity legal teams</title>
+<meta name="description" content="PE Counsel is a single platform underneath every legal workflow a fund runs — deal, portfolio, funds, and tax &amp; structuring, on one data model. Get early access.">
 <meta property="og:title" content="PE Counsel — Private Equity Legal AI">
-<meta property="og:description" content="The AI-native legal stack for private equity teams. Coming soon.">
+<meta property="og:description" content="PE Counsel is a single platform underneath every legal workflow a fund runs — deal, portfolio, funds, and tax &amp; structuring, on one data model. Get early access.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0e1a'/%3E%3Crect x='7' y='7' width='7' height='18' rx='2' fill='%2300C896'/%3E%3Crect x='18' y='7' width='7' height='11' rx='2' fill='%234F8EF7'/%3E%3Crect x='18' y='21' width='7' height='4' rx='2' fill='%234F8EF7' opacity='.55'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F1B2D'/%3E%3Crect x='7' y='10' width='4' height='12' rx='1' fill='%231F6F62'/%3E%3Crect x='13' y='7' width='4' height='18' rx='1' fill='%238892A0'/%3E%3Crect x='19' y='4' width='4' height='24' rx='1' fill='%23FFFFFF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=IBM+Plex+Serif:wght@400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="grid-bg" aria-hidden="true"></div>
-<div class="orb orb-teal" aria-hidden="true"></div>
-<div class="orb orb-blue" aria-hidden="true"></div>
 
-<header class="nav">
-  <a class="brand" href="#top" aria-label="PE Counsel home">
-    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,.04)"/><rect x="7" y="7" width="7" height="18" rx="2" fill="#00C896"/><rect x="18" y="7" width="7" height="11" rx="2" fill="#4F8EF7"/><rect x="18" y="21" width="7" height="4" rx="2" fill="#4F8EF7" opacity=".55"/></svg>
-    <span class="brand-name">PE&nbsp;Counsel</span>
-  </a>
-  <div class="nav-right">
-    <span class="pill">Pre-Launch</span>
+<div class="noise" aria-hidden="true"></div>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="PE Counsel">
+      <div class="mark"><span></span><span></span><span></span></div>
+      <div class="brand-name">PE Counsel</div>
+    </a>
+    <a class="nav-link" href="#modules">Modules</a>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      <span>Coming soon</span>
-    </div>
-    <h1 class="hero-title">The AI-native legal stack<br>for <span class="grad">private equity</span>.</h1>
-    <p class="hero-sub">
-      PE Counsel brings document review, legal spend control, RFP &amp; law-firm selection,
-      panel management and bill review into a single platform — built for fund legal teams.
+<main class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow reveal">EARLY ACCESS</div>
+    <h1 class="reveal">The operating layer for<br>private equity legal teams.</h1>
+    <p class="lede reveal">
+      PE Counsel is a single platform underneath every legal workflow a fund
+      runs — deal, portfolio, funds, and tax &amp; structuring, sharing one
+      data model and one audit trail instead of six disconnected tools.
+    </p>
+    <p class="lede lede-sub reveal">
+      We're opening free early access to a small group of legal teams before
+      general launch — full use of the platform in exchange for your
+      feedback while we finish building it.
     </p>
 
-    <form class="sub-form" id="sub-form" novalidate>
-      <input type="email" id="sub-email" class="sub-input" placeholder="you@fund.com" autocomplete="email" required aria-label="Email address">
-      <button type="submit" class="sub-btn" id="sub-btn">Stay updated</button>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
-    </form>
-    <p class="sub-note" id="sub-note">We'll send you a one-time verification email — one click and you're on the list.</p>
-    <p class="sub-status" id="sub-status" role="status" aria-live="polite"></p>
-
-    <div class="hero-strip">
-      <span>Built for funds &amp; GPs</span>
-      <span class="sep"></span>
-      <span>Legal ops, end to end</span>
-      <span class="sep"></span>
-      <span>AI-assisted, human-approved</span>
-    </div>
-  </section>
-
-  <section class="section" id="what">
-    <p class="kicker">// What we're building</p>
-    <h2 class="section-title">One platform. Your entire legal workflow.</h2>
-    <p class="section-sub">PE Counsel is the operating layer between fund teams, outside counsel and every document, invoice and decision in between.</p>
-
-    <div class="cards">
-      <article class="card">
-        <svg class="card-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6l2 2v14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5l2-2z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
-        <h3>AI Document Review &amp; Drafting</h3>
-        <p>Review, annotate and draft across SPAs, SHAs, DDQs and fund documents — with an AI that understands private-equity deal terms.</p>
-      </article>
-      <article class="card">
-        <svg class="card-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
-        <h3>Legal Spend &amp; Bill Control</h3>
-        <p>Capture every invoice, split by matter and funding source, and get line-item scrutiny so outside-counsel spend stays on plan.</p>
-      </article>
-      <article class="card">
-        <svg class="card-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-        <h3>RFP &amp; Law-Firm Selection</h3>
-        <p>Run structured RFPs, invite firms, score responses against your own evaluation matrix and let PE Counsel rank the field.</p>
-      </article>
-      <article class="card">
-        <svg class="card-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5M4 19h16"/><rect x="8" y="11" width="3" height="5" rx="1"/><rect x="13" y="7" width="3" height="9" rx="1"/><rect x="18" y="14" width="2" height="2" rx="1" fill="currentColor" stroke="none"/></svg>
-        <h3>Panel &amp; Portfolio Analytics</h3>
-        <p>Live scorecards across your preferred-firm panel, rate compliance and portfolio-wide analytics — all fed by your own data.</p>
-      </article>
-      <article class="card">
-        <svg class="card-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v9h9"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
-        <h3>Bill Review &amp; Validation</h3>
-        <p>Link engagements to invoices, validate rates against scope and flag deviations — before they hit your carried interest.</p>
-      </article>
-      <article class="card">
-        <svg class="card-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
-        <h3>Security &amp; Compliance First</h3>
-        <p>Data protection, audit trails and e-signature-ready workflows — architected for the confidentiality private equity demands.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section sec-cta">
-    <div class="cta-card">
-      <p class="kicker">// Stay updated</p>
-      <h2 class="section-title">Ready when you are.</h2>
-      <p class="section-sub">We're putting the finishing touches on the platform. Drop your email and be the first to get access.</p>
-      <form class="sub-form sub-form-lg" id="sub-form2" novalidate>
-        <input type="email" id="sub-email2" class="sub-input" placeholder="you@fund.com" autocomplete="email" required aria-label="Email address">
-        <button type="submit" class="sub-btn" id="sub-btn2">Stay updated</button>
+    <div class="signup reveal">
+      <form id="signup-form" novalidate>
+        <label for="email" class="visually-hidden">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@yourfund.com" required autocomplete="email">
+        <button type="submit" class="submit" id="signup-btn">Get early access</button>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
       </form>
-      <p class="sub-note" id="sub-note2">One verification email · one click · done.</p>
-      <p class="sub-status" id="sub-status2" role="status" aria-live="polite"></p>
+      <div class="form-success" id="form-success">Almost there! Check your inbox and click the confirmation link in our email.</div>
+      <div class="form-error" id="form-error">Something went wrong. Please try again.</div>
+      <p class="form-note">Free during early access. No card required. We'll reach out before you're ever charged anything.</p>
+      <p class="form-note sub">One-time verification email. We only use your address to notify you about the launch.</p>
     </div>
-  </section>
+  </div>
 </main>
 
-<footer class="footer" id="privacy">
-  <div class="footer-inner">
-    <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,.04)"/><rect x="7" y="7" width="7" height="18" rx="2" fill="#00C896"/><rect x="18" y="7" width="7" height="11" rx="2" fill="#4F8EF7"/><rect x="18" y="21" width="7" height="4" rx="2" fill="#4F8EF7" opacity=".55"/></svg>
-      <span class="brand-name">PE&nbsp;Counsel</span>
-    </a>
-    <p class="footer-tag">Private Equity Legal AI · Pre-launch</p>
-    <p class="footer-note">© 2026 PE Counsel. All rights reserved.</p>
-    <p class="privacy-note">
-      <strong>Datenschutz (kurz):</strong> Wir speichern ausschließlich deine E-Mail-Adresse und verwenden sie nur,
-      um dich einmalig über den Launch zu informieren. Eine Weitergabe an Dritte erfolgt nicht.
-      Du kannst die Einwilligung jederzeit mit einer kurzen E-Mail an <a href="mailto:sales@pecounsel.ai">sales@pecounsel.ai</a> widerrufen.
+<hr class="divider">
+
+<section class="about" id="modules">
+  <div class="wrap">
+    <h2 class="reveal">Six modules. One data model.</h2>
+    <p class="reveal">
+      Every fund reaches the same wall as it scales: deal terms live in one
+      lawyer's inbox, portfolio obligations live in another's memory, and
+      nobody can answer "where do we stand" without a week of chasing
+      documents. PE Counsel is built to close that gap.
     </p>
+
+    <div class="modules">
+      <div class="module-row reveal">
+        <div class="module-swatch" style="background:#0F1B2D;"></div>
+        <div class="module-name">Platform</div>
+        <div class="module-desc">Core workspace, permissions, and the audit trail every other module sits on.</div>
+      </div>
+      <div class="module-row reveal">
+        <div class="module-swatch" style="background:#B0824D;"></div>
+        <div class="module-name">Intelligence</div>
+        <div class="module-desc">AI-assisted clause extraction, drafting support, and risk flagging across everything else.</div>
+      </div>
+      <div class="module-row reveal">
+        <div class="module-swatch" style="background:#1F6F62;"></div>
+        <div class="module-name">Deal</div>
+        <div class="module-desc">A transaction workspace for live deals — diligence to signing.</div>
+      </div>
+      <div class="module-row reveal">
+        <div class="module-swatch" style="background:#3B6E8F;"></div>
+        <div class="module-name">Portfolio</div>
+        <div class="module-desc">Legal workflow for portfolio companies, standardized across the fund.</div>
+      </div>
+      <div class="module-row reveal">
+        <div class="module-swatch" style="background:#6B4357;"></div>
+        <div class="module-name">Funds</div>
+        <div class="module-desc">Fund-level governance, LPA obligations, and the compliance calendar.</div>
+      </div>
+      <div class="module-row reveal">
+        <div class="module-swatch" style="background:#6B7A4A;"></div>
+        <div class="module-name">Tax &amp; Structuring</div>
+        <div class="module-desc">Structuring workflow and tax-position tracking across jurisdictions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="security">
+  <div class="wrap">
+    <h2 class="reveal">Built for how legal teams vet vendors</h2>
+    <p class="reveal">
+      We know what a GC's procurement checklist looks like before they'll
+      put a client matter anywhere near a new platform. Here's where we
+      stand today, and where we're headed.
+    </p>
+    <div class="security-grid">
+      <div class="security-item reveal">
+        <h3>Encryption</h3>
+        <p>All data encrypted in transit (TLS 1.2+) and at rest (AES-256), with client data isolated per tenant — no shared database rows across firms.</p>
+      </div>
+      <div class="security-item reveal">
+        <h3>Access control &amp; audit trail</h3>
+        <p>Role-based permissions, SSO/SAML for enterprise IT, and a full audit trail — every action is attributable and logged, core to the Platform module.</p>
+      </div>
+      <div class="security-item reveal">
+        <h3>Data residency</h3>
+        <p>Cloud-hosted on major infrastructure providers, EU region by default, with US or other regions available for clients whose own regulatory or LP requirements call for it.</p>
+      </div>
+      <div class="security-item reveal">
+        <h3>AI &amp; client data</h3>
+        <p>Client data is never used to train shared or foundation models. Firms can disable Intelligence features entirely without losing access to the rest of the platform.</p>
+      </div>
+      <div class="security-item reveal">
+        <h3>Certifications</h3>
+        <p>SOC 2 Type I targeted at GA, Type II within 12 months of launch. GDPR-aligned by design, with a Data Processing Agreement available to every client.</p>
+      </div>
+      <div class="security-item reveal">
+        <h3>Data ownership &amp; export</h3>
+        <p>Client data always remains the client's. Self-serve export in standard formats at any time, full deletion within 30 days of offboarding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div class="foot-brand-row">
+      <div class="mark"><span></span><span></span><span></span></div>
+      <div class="foot-brand">PE COUNSEL</div>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:sales@pecounsel.ai">sales@pecounsel.ai</a>
+      <a href="https://www.linkedin.com/company/146564942" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="privacy">Datenschutz (kurz): Wir speichern ausschließlich deine E-Mail-Adresse und verwenden sie nur, um dich einmalig über den Launch zu informieren. Eine Weitergabe an Dritte erfolgt nicht. Du kannst die Einwilligung jederzeit mit einer kurzen E-Mail an <a href="mailto:sales@pecounsel.ai">sales@pecounsel.ai</a> widerrufen.</p>
   </div>
 </footer>
 
