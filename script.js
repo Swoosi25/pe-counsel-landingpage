@@ -1,5 +1,5 @@
 (function () {
-  var ENDPOINT = 'https://pe-counsel-waitlist.wild-paper-7d0a.workers.dev/';
+  var ENDPOINT = 'https://pe-counsel-landingpage.pages.dev/api/waitlist';
   var QUEUE_KEY = 'pecounsel_waitlist_queue';
 
   var form = document.getElementById('signup-form');
